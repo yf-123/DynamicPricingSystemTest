@@ -1,0 +1,16 @@
+# Flask 后端 Dockerfile
+FROM python:3.10
+
+WORKDIR /app
+
+COPY backend/ /app/
+
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+EXPOSE 5000
+
+ENV FLASK_APP=run.py
+ENV FLASK_ENV=production
+
+CMD ["python", "run.py"] 
